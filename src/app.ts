@@ -654,6 +654,7 @@ class ProjectItem implements Draggable {
 
 
 
+
       const prjState = new ProjectState();
 new ProjectList('active');
 new ProjectList('finished');

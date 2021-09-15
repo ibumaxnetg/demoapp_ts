@@ -1,1 +1,5 @@
+# .DS_Store は外す
 .DS_Store
+
+# node_modules は外す
+node_modules/
