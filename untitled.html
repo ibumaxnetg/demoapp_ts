@@ -1,0 +1,29 @@
+<form id="user-input">
+  <div class="form-control">
+    <label for="title">タイトル</label>
+    <input type="text" id="title">
+  </div>
+  <div class="form-control">
+    <label for="description">説明</label>
+    <textarea id="description" rows="3"></textarea>
+  </div>
+  <div class="form-control">
+    <label for="manday">人日</label>
+    <input type="number" id="manday" step="1" min="0" max="100000">
+  </div>
+  <button type="submit">プロジェクト追加</button>
+</form>
+
+<section class="projects" id="finished-projects">
+  <header>
+    <h2>完了プロジェクト</h2>
+  </header>
+  <ul id="finished-projects-list"></ul>
+</section>
+
+<section class="projects" id="active-projects">
+  <header>
+    <h2>稼働中プロジェクト</h2>
+  </header>
+  <ul id="active-projects-list"></ul>
+</section>

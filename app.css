@@ -1,0 +1,199 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+label,
+input,
+textarea {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+textarea {
+  font: inherit;
+  padding: 0.2rem 0.4rem;
+  width: 100%;
+  max-width: 30rem;
+  border: 1px solid #ccc;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  background: #fff5f9;
+}
+
+button {
+  font: inherit;
+  background: #ff0062;
+  border: 1px solid #ff0062;
+  cursor: pointer;
+  color: white;
+  padding: 0.75rem 1rem;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover,
+button:active {
+  background: #a80041;
+  border-color: #a80041;
+}
+
+.projects {
+  margin: 1rem;
+  border: 1px solid #ff0062;
+}
+
+.projects header {
+  background: #ff0062;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#finished-projects {
+  border-color: #0044ff;
+}
+
+#finished-projects header {
+  background: #0044ff;
+}
+
+.projects h2 {
+  margin: 0;
+  color: white;
+}
+
+/* flexbox
+projects ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  list-style: none;
+  margin: 0;
+  padding: 0rem;
+  padding-left: 2%;
+}
+
+.projects li {
+  flex-basis: 23%;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
+  margin: 1rem 0;
+  margin-right: 2.0%;
+  background-color: white;
+  overflow: hidden;
+}
+*/
+
+/* grid start */
+.projects ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-flow: row;
+  grid-row-gap:  12px;
+  grid-column-gap: 12px;
+  list-style: none;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+.projects li {
+  grid-coulumn : 1 / 4;
+  justify-self: stretch;
+  align-self:  stretch;
+  border-radius: 14px;
+  border: 1px dotted #9c9c9c;
+
+}
+/* grid end */
+
+
+.projects li h2 {
+  width: 100%;
+  color: #ff0062;
+  margin: 0.5rem 0;
+  word-break:break-all;
+}
+
+/*#finished-projects li h2 {
+  width: 100%;
+  color: #0044ff;
+}
+*/
+.projects li h3 {
+  width: 100%;
+  color: #575757;
+  font-size: 1rem;
+  word-break:break-all;
+}
+
+.projects li p {
+  width: 100%;
+  margin: 0;
+  word-break:break-all;
+}
+
+.projects img {
+  max-width: 100%;
+  height: auto;
+}
+
+.droppable {
+  background: #ffe3ee;
+}
+
+#finished-projects .droppable {
+  background: #d6e1ff;
+}
+
+#user-input {
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #ff0062;
+  background: #f7f7f7;
+}
+
+#active-projects-list img {
+/*  width: 200px;
+  height: 200px;
+  overflow: hidden;z
+*/}
+
+.skeleton {
+  opacity: 0.7;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background: hsl(200, 20%, 70%);
+  }
+  100% {
+    background: hsl(200, 20%, 95%);
+  }
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 0.6rem;
+  margin-bottom: 0.25rem;
+  border-radius: 1.25rem;
+}

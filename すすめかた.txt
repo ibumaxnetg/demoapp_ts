@@ -1,0 +1,143 @@
+■すすめかた
+
+//////////
+class projictInput
+	要素を取得して表示する
+
+	index.html 内の <tamplate>要素 #project-input を取得
+	出力用 <div> 要素 #app を取得
+
+	取得してテンプレートの中の要素をインポートし表示する
+	※importNode
+
+	attach関数
+		表示する要素を作成する
+		取得した要素を表示する
+		※insertAdjacentElement
+		表示のform要素に #user-input を設定する
+
+	form input を取得する
+		※タイトル・説明・人日
+
+	configure関数
+		form にイベントリスナをつけて submit されたら各valueを取得する
+
+	submitHandler
+		submitされた時の処理
+
+	gatherUserInput
+		バリデーション処理
+		結果がfalseならアラートをだす
+
+	clearInput
+		入力値をクリアする
+
+	validate関数で、入力値を受け取り、結果がtrue|falseを返す
+		validatableInput を引数に以下を判定 isValid をかえす
+		isValid: 全ての入力が正しいかのフラグ
+		minlength: 最小文字数
+		maxlength: 最大文字数
+		min: 最小値
+		max: 最大値
+
+
+デコレータでbind(this) を呼び出そう
+
+バリデート処理を関数にしよう
+
+
+
+//////////
+class projectList
+	実行中のプロジェクト(active-project)と完了のプロジェクト(finished-project)を表示する
+
+	projectInput で入力された値を取得しリストを作成する
+	#project-list を取得しそこにプロジェクトを表示する
+
+
+	attach関数
+		表示する要素を作成する
+		取得した要素を表示する
+		※insertAdjacentElement
+
+	rendercontent関数
+		projectのリスト(ul)を表示する
+
+	renderProject関数
+		projectのリストに追加表示する
+
+
+
+
+
+
+//////////
+class projectState
+	projectState インスタンスをシングルトンで運用する
+
+アプリケーションの状態を管理する class を作成
+※シングルトンにする
+
+	projects配列を用意
+	projectListeners配列を用意
+
+	listenner[]
+		イベントリスナーの関数のリスト（配列）を管理する
+		なにか状態に変化があった場合にはそのリスナー関数が呼び出されるようにする
+
+	addListener関数
+		イベントリスナーを追加する
+
+	addProject関数
+		プロジェクトをプロジェクトの配列に追加する
+
+	addListener関数
+
+
+
+
+//////////
+ここまできたらコンポーネント化しよう
+ProjectList
+ProjectInput
+
+
+
+
+
+//////////
+コンポーネントを利用して
+ProjectItem をつくろう
+
+ProjectList の中身
+<h2> タイトル
+<h3> 人日
+<p> 説明
+
+を表示する
+
+
+人日をわかりやすく表示しよう 20人日→1人月
+get manday() {}
+
+
+
+
+
+//////////
+drag&dropをつけよう
+
+https://developer.mozilla.org/ja/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations
+
+HINT
+interface Draggable {
+  dragStartHandler(event: DragEvent): void;
+  dranEndHandler(event: DragEvent): void;
+}
+
+interface DragTarget {
+  dragOverHandler(event: DragEvent): void;
+  dropHandler(event: DragEvent): void;
+  dragLeaveHandler(event: DragEvent): void;
+}
+

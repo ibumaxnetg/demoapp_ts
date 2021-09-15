@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Document</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Previously loaded Firebase SDKs -->
+  <script defer src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script defer src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script defer src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDtWfk696nUTVNnsq9CKBUc8IqCWhkx6eM",
+    authDomain: "horseproject-1c28a.firebaseapp.com",
+    databaseURL: "https://horseproject-1c28a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "horseproject-1c28a",
+    storageBucket: "horseproject-1c28a.appspot.com",
+    messagingSenderId: "862568421640",
+    appId: "1:862568421640:web:aa14fa67aeea60369eb4bd",
+    measurementId: "G-D2M9Z0Z55P"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+var db = firebase.firestore();
+</script>
+</head>
+<body>
+    apiKey: "AIzaSyDtWfk696nUTVNnsq9CKBUc8IqCWhkx6eM",
+<div class="consolelog"></div>
+<script>
+// Add a second document with a generated ID.
+/*
+db.collection("users").add({
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+})
+.then((docRef) => {
+    console.log("Document written with ID: ", docRef.id);
+})
+.catch((error) => {
+    console.error("Error adding document: ", error);
+});
+
+
+// Add a second document with a generated ID.
+db.collection("users").add({
+    first: "Alan",
+    middle: "Mathison",
+    last: "Turing",
+    born: 1912
+})
+.then((docRef) => {
+    console.log("Document written with ID: ", docRef.id);
+})
+.catch((error) => {
+    console.error("Error adding document: ", error);
+});
+*/
+
+// データ型
+/*
+var docData = {
+    stringExample: "Hello world!",
+    booleanExample: true,
+    numberExample: 3.14159265,
+    dateExample: firebase.firestore.Timestamp.fromDate(new Date("December 10, 1815")),
+    arrayExample: [5, true, "hello"],
+    nullExample: null,
+    objectExample: {
+        a: 5,
+        b: {
+            nested: "foo"
+        }
+    }
+};
+db.collection("data").doc("one").set(docData).then(() => {
+    console.log("Document successfully written!");
+});
+*/
+
+
+// ドキュメントの作成または上書き
+// set() を使用してドキュメントを作成する場合、作成するドキュメントの ID を指定する必要があります。次に例を示します。
+// Add a new document in collection "cities"
+/*
+db.collection("cities").doc("LA").set({
+    name: "Los Angeles",
+    state: "CA",
+    country: "USA"
+})
+.then(() => {
+    console.log("Document successfully written!");
+})
+.catch((error) => {
+    console.error("Error writing document: ", error);
+});
+*/
+
+// ドキュメントに自動でIDを
+// Add a new document with a generated id.
+/*
+db.collection("cities").add({
+    name: "Tokyo",
+    country: "Japan"
+})
+.then((docRef) => {
+    console.log("Document written with ID: ", docRef.id);
+})
+.catch((error) => {
+    console.error("Error adding document: ", error);
+});
+*/
+
+// ドキュメントの更新 ※今回は即時関数
+// ドキュメント全体を上書きせずにドキュメントの一部のフィールドを更新するには、update() メソッドを使用します。
+/*
+// 作成
+db.collection("cities").doc("DC").set({
+    name: "Washington",
+    state: "DC",
+    country: "USA",
+    regions: firebase.firestore.FieldValue.serverTimestamp()
+})
+.then(() => {
+    console.log("Document successfully written!");
+})
+.catch((error) => {
+    console.error("Error writing document: ", error);
+});
+
+// 更新
+
+// Set the "capital" field of the city 'DC'
+(() => {
+    var washingtonRef = db.collection("cities").doc("DC");
+    return washingtonRef.update({
+    capital: true,
+    update: firebase.firestore.FieldValue.serverTimestamp()
+})
+.then(() => {
+    console.log("Document successfully updated!");
+})
+.catch((error) => {
+    // The document probably doesn't exist.
+    console.error("Error updating document: ", error);
+});
+})();
+*/
+
+
+// タイムスタンプ
+/*
+var docRef = db.collection('cities').doc('LA');
+
+// Update the timestamp field with the value from the server
+var updateTimestamp = docRef.update({
+    update: firebase.firestore.FieldValue.serverTimestamp()
+});
+*/
+
+
+// ネストされたオブジェクトのフィールドを更新する
+// update() を呼び出すときにドット表記を使用してドキュメント内のネストされたフィールドを参照できます。
+// Create an initial document to update.
+/*
+var frankDocRef = db.collection("users").doc("frank");
+frankDocRef.set({
+    name: "Frank",
+    favorites: { food: "Pizza", color: "Blue", subject: "recess" },
+    age: 12
+});
+
+// To update age and favorite color:
+db.collection("users").doc("frank").update({
+    "age": 11,
+    "favorites.hobbies": "game"
+})
+.then(() => {
+    console.log("Document successfully updated!");
+});
+*/
+
+// 配列内の要素を更新する
+// ドキュメントに配列フィールドがある場合は、arrayUnion() と arrayRemove() を使用して要素を追加および削除できます。arrayUnion() は要素を配列に追加しますが、追加されるのはまだ存在しない要素のみです。arrayRemove() は指定した各要素のすべてのインスタンスを削除します。
+
+/*
+var washingtonRef = db.collection("cities").doc("DC");
+
+// Atomically add a new region to the "regions" array field.
+washingtonRef.update({
+    regions: firebase.firestore.FieldValue.arrayUnion("greater_virginia", "east_coast")
+});
+
+// Atomically remove a region from the "regions" array field.
+washingtonRef.update({
+    regions: firebase.firestore.FieldValue.arrayRemove("east_coast")
+});
+*/
+
+
+// "get" メソッドを使用してコレクション全体を取得することもできます。
+const logDispEl = document.querySelector('.consolelog');
+
+db.collection("cities").get().then((querySnapshot) => {
+  querySnapshot.forEach((doc) => {
+    const addEle = document.createElement('p');
+    // const dataTmp = `${doc.id} => ${doc.data()}`;
+
+    const dataArr = doc.data();
+    const dataTmp = `${doc.id} => ${dataArr}`;
+
+    console.log(dataArr);
+    addEle.textContent = dataTmp;
+    logDispEl.appendChild(addEle);
+  });
+
+});
+</script>
+
+</body>
+</html>
